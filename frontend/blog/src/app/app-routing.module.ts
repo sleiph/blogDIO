@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ContatoComponent } from './contato/contato.component';
 import { FeedComponent } from './feed/feed.component';
 import { HomeComponent } from './home/home.component';
 
@@ -12,6 +13,9 @@ const routes: Routes = [
   },
   {
     path: 'feed', component: FeedComponent
+  },
+  {
+    path: 'contato', component: ContatoComponent
   }
 ];
 

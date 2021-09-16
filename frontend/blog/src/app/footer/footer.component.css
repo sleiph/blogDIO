@@ -1,0 +1,27 @@
+.social-network{
+  list-style: none;
+  padding: 0;
+}
+
+.social-network > li{
+  display: inline;
+  padding: 8px;
+  margin:0;
+  font-size: 32px;
+}
+
+.icoGithub, .icoDeviantart, .icoLinkedin{
+  color: white;
+}
+
+.icoGithub:hover{
+  color: #333;
+}
+
+.icoDeviantart:hover{
+  color: #4dc47d;
+}
+
+.icoLinkedin:hover{
+  color: #0072b1;
+}
