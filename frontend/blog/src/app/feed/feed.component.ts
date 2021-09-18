@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../service/post.service';
 import { Post } from '../model/Post';
-import { Subscription } from 'rxjs';
-
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
@@ -10,9 +8,9 @@ import { Subscription } from 'rxjs';
 })
 export class FeedComponent implements OnInit {
 
-  listPost: Post[] = new Array(99);
+  listPost: Post[];
   post: Post = new Post;
-  nome: string = "";
+  nome: string;
 
   constructor(private postService: PostService) { }
 
@@ -21,17 +19,21 @@ export class FeedComponent implements OnInit {
   }
 
   findPosts() {
-    this.postService.getPosts().subscribe(
-      (data: Post[]) => {
-        this.listPost = data;
-      }
-    )
+    this.postService.getPosts().subscribe((data: Post[]) => {
+      this.listPost = data;
+    })
   }
 
   cadastrarMensagem() {
     this.postService.postMensagem(this.post).subscribe((data: Post) => {
       this.post = data
       location.assign('/feed')
+    })
+  }
+
+  buscarMensagem() {
+    this.postService.getPosts().subscribe((data: Post[]) => {
+      this.listPost = data.filter( o => this.post.nome == o.nome)
     })
   }
 
